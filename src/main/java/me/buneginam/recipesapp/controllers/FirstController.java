@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @RestController
 public class FirstController {
     @GetMapping("/")
@@ -12,7 +14,6 @@ public class FirstController {
     }
 
     @GetMapping("/info")
-    public String info(@RequestParam String name, String nameProject, Integer dateOfCreation, String description) {
-        return "Привет, меня зовут " + name + " название проекта " + nameProject + " дата создания " + dateOfCreation + " описание проекта" + description;
-    }
+    public InfoRecord info(){
+        return new InfoRecord( "Мария", "Рецепты", LocalDate.of(2023, 01, 11), "приложение для добавления рецептов" );  }
 }
